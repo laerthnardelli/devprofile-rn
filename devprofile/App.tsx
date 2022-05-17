@@ -1,5 +1,6 @@
 import React from 'react';
 import { ThemeProvider } from 'styled-components';
+import { NavigationContainer } from '@react-navigation/native';
 import theme from './src/global/styles/theme';
 import { SignUp } from './src/pages/SignUp';
 
@@ -21,9 +22,11 @@ const App: React.FunctionComponent = () => {
   }
 
   return (
-    <ThemeProvider theme={theme}>
-      <SignUp />
-    </ThemeProvider>
+    <NavigationContainer>
+      <ThemeProvider theme={theme}>
+        <SignUp />
+      </ThemeProvider>
+    </NavigationContainer>
   );
 };
 
