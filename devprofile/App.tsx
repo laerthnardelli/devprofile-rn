@@ -1,7 +1,7 @@
 import React from 'react';
 import { ThemeProvider } from 'styled-components';
 import theme from './src/global/styles/theme';
-import { Home } from './src/pages/Home';
+import { SignIn } from './src/pages/Signin';
 
 import {
   useFonts,
@@ -22,7 +22,7 @@ const App: React.FunctionComponent = () => {
 
   return (
     <ThemeProvider theme={theme}>
-      <Home />
+      <SignIn />
     </ThemeProvider>
   );
 };
