@@ -2,6 +2,8 @@ import React from 'react';
 import { KeyboardAvoidingView, Platform, ScrollView } from 'react-native';
 import { useNavigation } from '@react-navigation/native';
 import { useForm, FieldValues } from 'react-hook-form';
+import { yupResolver } from '@hookform/resolvers/yup';
+import * as yup from 'yup';
 
 import { Button } from '../../components/Form/Button';
 import { InputControl } from '../../components/Form/InputControl';
@@ -24,9 +26,20 @@ interface IFormInputs {
   [name: string]: any;
 }
 
-export const SignUp: React.FunctionComponent = () => {
-  const { handleSubmit, control } = useForm<FieldValues>();
+const formSchema = yup.object({
+  name: yup.string().required('Informe o nome completo.'),
+  email: yup.string().email('Email inválido.').required('Informe o email.'),
+  password: yup.string().required('Informe a senha.'),
+});
 
+export const SignUp: React.FunctionComponent = () => {
+  const {
+    handleSubmit,
+    control,
+    formState: { errors },
+  } = useForm<FieldValues>({
+    resolver: yupResolver(formSchema),
+  });
   const { goBack } = useNavigation<ScreenNavigationProp>();
 
   const handleSignUp = (form: IFormInputs) => {
@@ -59,6 +72,7 @@ export const SignUp: React.FunctionComponent = () => {
               placeholder="Nome completo"
               autoCapitalize="none"
               autoCorrect={false}
+              error={errors.name && errors.name.message}
             />
             <InputControl
               control={control}
@@ -67,6 +81,7 @@ export const SignUp: React.FunctionComponent = () => {
               autoCapitalize="none"
               autoCorrect={false}
               keyboardType="email-address"
+              error={errors.email && errors.email.message}
             />
             <InputControl
               control={control}
@@ -74,6 +89,7 @@ export const SignUp: React.FunctionComponent = () => {
               placeholder="Senha"
               autoCorrect={false}
               secureTextEntry
+              error={errors.password && errors.password.message}
             />
             <Button title="Criar conta" onPress={handleSubmit(handleSignUp)} />
           </Content>
