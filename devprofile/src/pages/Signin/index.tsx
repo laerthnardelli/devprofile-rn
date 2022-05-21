@@ -1,5 +1,11 @@
 import React from 'react';
-import { KeyboardAvoidingView, Platform, ScrollView, View } from 'react-native';
+import {
+  Alert,
+  ScrollView,
+  KeyboardAvoidingView,
+  Platform,
+  View,
+} from 'react-native';
 import { useNavigation } from '@react-navigation/native';
 import { useForm, FieldValues } from 'react-hook-form';
 import { yupResolver } from '@hookform/resolvers/yup';
@@ -35,10 +41,9 @@ const formSchema = yup.object({
 });
 
 export const SignIn: React.FunctionComponent = () => {
-  const auth = React.useContext(AuthContext);
+  const { signIn } = React.useContext(AuthContext);
   const [loading, setLoading] = React.useState(false);
 
-  console.log(auth);
   const {
     handleSubmit,
     control,
@@ -56,8 +61,15 @@ export const SignIn: React.FunctionComponent = () => {
     };
 
     //console.log(data);
-    setLoading(true);
-    auth.signIn();
+    try {
+      setLoading(true);
+      signIn(data);
+    } catch (error) {
+      Alert.alert(
+        'Erro na autenticação',
+        'Ocorreu um erro ao fazer login, verifique as credenciais.',
+      );
+    }
   };
 
   return (
