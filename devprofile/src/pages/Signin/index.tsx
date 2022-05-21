@@ -36,6 +36,8 @@ const formSchema = yup.object({
 
 export const SignIn: React.FunctionComponent = () => {
   const auth = React.useContext(AuthContext);
+  const [loading, setLoading] = React.useState(false);
+
   console.log(auth);
   const {
     handleSubmit,
@@ -53,7 +55,9 @@ export const SignIn: React.FunctionComponent = () => {
       password: form.password,
     };
 
-    console.log(data);
+    //console.log(data);
+    setLoading(true);
+    auth.signIn();
   };
 
   return (
@@ -89,7 +93,11 @@ export const SignIn: React.FunctionComponent = () => {
               secureTextEntry
               error={errors.password && errors.password.message}
             />
-            <Button title="Entrar" onPress={handleSubmit(handleSignIn)} />
+            <Button
+              title="Entrar"
+              disabled={loading || errors.email || errors.password}
+              onPress={handleSubmit(handleSignIn)}
+            />
             <ForgotPasswordButton>
               <ForgotPasswordTitle>Esqueci minha senha</ForgotPasswordTitle>
             </ForgotPasswordButton>

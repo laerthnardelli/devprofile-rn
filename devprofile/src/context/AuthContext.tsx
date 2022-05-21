@@ -2,6 +2,7 @@ import React from 'react';
 
 interface IAuthContext {
   name: string;
+  signIn(): void;
 }
 
 interface IProps {
@@ -13,8 +14,11 @@ export const AuthContext = React.createContext<IAuthContext>(
 );
 
 export const AuthProvider: React.FunctionComponent<IProps> = ({ children }) => {
+  const signIn = () => {
+    console.log('signIn');
+  };
   return (
-    <AuthContext.Provider value={{ name: 'Laérth' }}>
+    <AuthContext.Provider value={{ name: 'Laérth', signIn }}>
       {children}
     </AuthContext.Provider>
   );
