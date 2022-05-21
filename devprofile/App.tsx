@@ -5,6 +5,7 @@ import AppLoading from 'expo-app-loading';
 
 import theme from './src/global/styles/theme';
 import { Routes } from './src/routes';
+import { AuthContext } from './src/context/AuthContext';
 
 import {
   useFonts,
@@ -25,7 +26,9 @@ const App: React.FunctionComponent = () => {
   return (
     <NavigationContainer>
       <ThemeProvider theme={theme}>
-        <Routes />
+        <AuthContext.Provider value={{ name: 'Laerth' }}>
+          <Routes />
+        </AuthContext.Provider>
       </ThemeProvider>
     </NavigationContainer>
   );

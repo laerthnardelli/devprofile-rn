@@ -7,6 +7,7 @@ import * as yup from 'yup';
 
 import { Button } from '../../components/Form/Button';
 import { InputControl } from '../../components/Form/InputControl';
+import { AuthContext } from '../../context/AuthContext';
 import {
   Container,
   Content,
@@ -34,6 +35,8 @@ const formSchema = yup.object({
 });
 
 export const SignIn: React.FunctionComponent = () => {
+  const auth = React.useContext(AuthContext);
+  console.log(auth);
   const {
     handleSubmit,
     control,
