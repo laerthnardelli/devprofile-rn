@@ -13,7 +13,7 @@ import * as yup from 'yup';
 
 import { Button } from '../../components/Form/Button';
 import { InputControl } from '../../components/Form/InputControl';
-import { AuthContext } from '../../context/AuthContext';
+import { useAuth } from '../../context/AuthContext';
 import {
   Container,
   Content,
@@ -41,7 +41,7 @@ const formSchema = yup.object({
 });
 
 export const SignIn: React.FunctionComponent = () => {
-  const { signIn } = React.useContext(AuthContext);
+  const { signIn } = useAuth();
   const [loading, setLoading] = React.useState(false);
 
   const {
