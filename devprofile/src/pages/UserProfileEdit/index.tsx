@@ -19,14 +19,10 @@ import {
   GoBackButton,
   Header,
   HeaderTitle,
-  HeaderTop,
   Icon,
-  Logo,
-  PhotoContainer,
   Title,
   UserAvatar,
 } from './styles';
-import logo from '../../assets/logo.png';
 import { useAuth } from '../../context/AuthContext';
 import avatarDefault from '../../assets/avatar02.png';
 
@@ -51,6 +47,10 @@ export const UserProfileEdit: React.FunctionComponent = () => {
     formState: { errors },
   } = useForm<FieldValues>({
     resolver: yupResolver(formSchema),
+    defaultValues: {
+      name: user.name,
+      email: user.email,
+    },
   });
 
   const { goBack } = useNavigation<ScreenNavigationProp>();
@@ -88,23 +88,18 @@ export const UserProfileEdit: React.FunctionComponent = () => {
       >
         <Container>
           <Header>
-            <HeaderTop>
-              <GoBackButton onPress={goBack}>
-                <Icon name="chevron-left" />
-              </GoBackButton>
-              <HeaderTitle>Seu Perfil</HeaderTitle>
-            </HeaderTop>
+            <GoBackButton onPress={goBack}>
+              <Icon name="chevron-left" />
+            </GoBackButton>
+            <HeaderTitle>Seu Perfil</HeaderTitle>
 
-            <PhotoContainer>
-              <UserAvatar
-                source={
-                  user.avatar_url ? { uri: user.avatar_url } : avatarDefault
-                }
-              />
-            </PhotoContainer>
+            <UserAvatar
+              source={
+                user.avatar_url ? { uri: user.avatar_url } : avatarDefault
+              }
+            />
           </Header>
           <Content>
-            <Logo source={logo} />
             <Title>Editar dados do perfil</Title>
             <InputControl
               autoCapitalize="none"
@@ -124,7 +119,11 @@ export const UserProfileEdit: React.FunctionComponent = () => {
               error={errors.email && errors.email.message}
             />
 
-            <Button title="Entrar" onPress={handleSubmit(handleProfileEdit)} />
+            <Button
+              title="Salvar alterações"
+              onPress={handleSubmit(handleProfileEdit)}
+              disabled={!!errors.name || !!errors.email}
+            />
           </Content>
         </Container>
       </ScrollView>
