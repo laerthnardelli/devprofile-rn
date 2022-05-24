@@ -7,7 +7,7 @@ import {
   EmailTitle,
   GoBackButton,
   Header,
-  HeaderTile,
+  HeaderTitle,
   HeaderTop,
   Icon,
   NameData,
@@ -38,7 +38,7 @@ export const UserProfile: React.FunctionComponent = () => {
           <GoBackButton onPress={goBack}>
             <Icon name="chevron-left" />
           </GoBackButton>
-          <HeaderTile>Seu Perfil</HeaderTile>
+          <HeaderTitle>Seu Perfil</HeaderTitle>
         </HeaderTop>
         <PhotoContainer>
           <UserAvatar

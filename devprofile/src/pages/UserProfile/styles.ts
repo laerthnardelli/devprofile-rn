@@ -29,7 +29,7 @@ export const Icon = styled(Feather)`
   font-size: ${RFValue(24)}px;
 `;
 
-export const HeaderTile = styled.Text`
+export const HeaderTitle = styled.Text`
   color: ${({ theme }) => theme.colors.gray800};
   font-size: ${RFValue(18)}px;
   font-family: ${({ theme }) => theme.fonts.bold};
