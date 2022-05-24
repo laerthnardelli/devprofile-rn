@@ -21,6 +21,7 @@ import {
 
 import avatarDefault from '../../assets/avatar02.png';
 import { useAuth } from '../../context/AuthContext';
+import { Button } from '../../components/Form/Button';
 
 interface ScreenNavigationProp {
   goBack: () => void;
@@ -59,6 +60,8 @@ export const UserProfile: React.FunctionComponent = () => {
           <EmailTitle>EMAIL</EmailTitle>
           <EmailData>{user.email}</EmailData>
         </UserEmailDetail>
+        <Button title="Editar dados do perfil" onPress={() => {}} />
+        <Button title="Trocar senha" onPress={() => {}} />
       </Content>
     </Container>
   );
