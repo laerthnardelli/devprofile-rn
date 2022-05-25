@@ -5,9 +5,9 @@
 git clone https://github.com/laerthnardelli/devprofile-rn.git
 ```
 
-Esse projeto, é referente ao curso ministrado pelo professor **[@Jorge Aluizio Alves de Souza](https://www.aluiziodeveloper.com.br/)** 
+Esse projeto, é referente ao curso ministrado pelo professor **[Jorge Aluizio Alves de Souza](https://www.aluiziodeveloper.com.br/)** 
 
-**[@Link do Curso](https://www.udemy.com/course/react-native-typescript/)**
+**[Link do Curso](https://www.udemy.com/course/react-native-typescript/)**
 
 O projeto desse curso tem como finalidade via consumo da `api-node-devprofile`:
 O cadastro de usuário, login, logout, recuperação a senha via e-mail(ethereal.email), alterar os dados perfil após logado, e listar os demais usuários cadastros no banco de dados e suas respetivas informações.
@@ -20,6 +20,7 @@ Tecnologias Utilizadas:<br/>
 * Typescript<br/>
 * Styled Component<br/>
 * React Hook Form<br/>
+* Axios<br/>
 * EsLint<br/>
 * Prettier<br/>
 * Editorconfig<br/>
@@ -76,3 +77,7 @@ yarn dev
 ```
 
 O servidor estará em execução no endereço `http://localhost:3333`.
+
+
+## Imagens do projeto
+
