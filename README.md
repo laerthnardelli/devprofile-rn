@@ -79,5 +79,11 @@ yarn dev
 O servidor estará em execução no endereço `http://localhost:3333`.
 
 
-## Imagens do projeto
+## Imagens do projeto<br>
 
+![devprofile 01](https://user-images.githubusercontent.com/54412289/170298333-948c89bf-56f4-4a6f-8346-d899b5bf5460.jpeg)
+![devprofile 02](https://user-images.githubusercontent.com/54412289/170298344-dcfb478d-acaa-429f-a493-7f6f52cd8d6e.jpg)
+![devprofile 03](https://user-images.githubusercontent.com/54412289/170298346-151005b4-fddd-4a14-9829-17dad1a396b2.jpg)
+![devprofile 04](https://user-images.githubusercontent.com/54412289/170298348-73a7b204-296b-4d70-baa1-7cecadcdcb2e.jpg)
+![devprofile 05](https://user-images.githubusercontent.com/54412289/170298353-127fa550-ec8e-491b-b594-603f03cc1179.jpg)
+![devprofile 06](https://user-images.githubusercontent.com/54412289/170298355-64b83bc6-bd05-47d2-948e-30575d5703d2.jpg)
